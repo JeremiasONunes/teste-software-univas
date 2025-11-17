@@ -33,7 +33,7 @@
     "src/**/*",
     "tests/**/*",
     "prisma/**/*"
-  ],
+, "../frontend/tests/integration/Users.load.int.test.tsx"  ],
   "exclude": [
     "node_modules",
     "dist"
