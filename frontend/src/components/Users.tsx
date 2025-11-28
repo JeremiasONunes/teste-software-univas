@@ -12,15 +12,6 @@ interface User {
 interface Task {
   id: string
   title: string
-  status: 'PENDING' | 'IN_PROGRESS' | 'COMPLETED' | 'CANCELLED'
-  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT'
-  user: User
-  category: Category
-}
-
-interface Category {
-  id: string
-  name: string
 }
 
 const Users: React.FC = () => {
@@ -72,7 +63,10 @@ const Users: React.FC = () => {
 
   const handleEdit = (user: User) => {
     setEditingUser(user)
-    setFormData({ name: user.name, email: user.email })
+    setFormData({ 
+      name: user.name, 
+      email: user.email 
+    })
     setShowForm(true)
   }
 
@@ -114,9 +108,9 @@ const Users: React.FC = () => {
         {showForm && (
           <form onSubmit={handleSubmit} style={{ marginTop: '20px' }}>
             <div className="form-group">
-              <label htmlFor="name">Nome:</label>
+              <label htmlFor="user-name">Nome:</label>
               <input
-                id="name"
+                id="user-name"
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -124,9 +118,9 @@ const Users: React.FC = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email:</label>
+              <label htmlFor="user-email">Email:</label>
               <input
-                id="email"
+                id="user-email"
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
